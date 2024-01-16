@@ -117,10 +117,11 @@ class UserController {
     userSignup = async (req, res, next) => {
         try {
             console.log("User called userSignup!!!!")
+            console.log("req.body", req.body)
             let password = req.body.password;
             const signup = await UserService.signUp(req.body)
             if (signup.response) {
-                const result = await UserService.userLogin({email:req.body.email, password: password})
+                const result = await UserService.userLogin({ email: req.body.email, password: password })
                 res.send(result)
             } else {
                 res.send(signup)
@@ -154,4 +155,4 @@ class UserController {
 /******************************************************************************
  *                               Export
  ******************************************************************************/
-module.exports = new UserController;
+module.exports = new UserController();

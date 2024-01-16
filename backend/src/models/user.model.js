@@ -6,7 +6,7 @@ const HttpException = require('../utils/HttpException.utils');
 class UserModel {
     tableName = 'user';
 
-    find = async (params = {}) => { 
+    find = async (params = {}) => {
         try {
             let sql = `SELECT * FROM ${this.tableName}`;
 
@@ -17,27 +17,29 @@ class UserModel {
             const { columnSet, values } = multipleColumnSet(params)
             sql += ` WHERE ${columnSet}`;
             return await query(sql, [...values]);
-        } catch(error) {
-            return {error:error.sqlMessage};
+        } catch (error) {
+            console.error("userModal: find", error)
+            return { error: error.sqlMessage };
         }
     }
 
     findOne = async (params) => {
         try {
             const { columnSet, values } = multipleColumnSet(params)
-            
+
             const sql = `SELECT * FROM ${this.tableName}
             WHERE ${columnSet}`;
             const result = await query(sql, [...values]);
 
             // return back the first row (user)
             return result[0];
-        } catch(error) {
-            return {error:error.sqlMessage};
+        } catch (error) {
+            console.error("userModal: findOne", error)
+            return { error: error.sqlMessage };
         }
     }
 
-    create = async ({ email, password, country, invite_code, role = Role.General, get_bnb = false}) => {
+    create = async ({ email, password, country, invite_code, role = Role.General, get_bnb = false }) => {
         try {
             const sql = `INSERT INTO ${this.tableName}
             (email, password, country, invite_code, role, get_bnb) VALUES (?,?,?,?,?,?)`;
@@ -47,7 +49,8 @@ class UserModel {
 
             return affectedRows;
         } catch (error) {
-            return {error:error.sqlMessage};
+            console.error("userModal: create", error)
+            return { error: error.sqlMessage };
         }
     }
 
@@ -60,15 +63,16 @@ class UserModel {
             const result = await query(sql, [...values, id]);
 
             return result;
-        } catch(error) {
-            return {error:error.sqlMessage};
+        } catch (error) {
+            console.error("userModal: update", error)
+            return { error: error.sqlMessage };
         }
     }
 
     delete = async (params) => {
         try {
             const { columnSet, values } = multipleColumnSet(params)
-            
+
             const sql = `DELETE FROM ${this.tableName}
             WHERE ${columnSet}`;
 
@@ -77,9 +81,10 @@ class UserModel {
 
             return affectedRows;
         } catch (error) {
-            return {error:error.sqlMessage};
+            console.error("userModal: delete", error)
+            return { error: error.sqlMessage };
         }
     }
 }
 
-module.exports = new UserModel;
+module.exports = new UserModel();

@@ -16,6 +16,7 @@ class DBConnection {
 
     checkConnection() {
         this.db.getConnection((err, connection) => {
+            console.log("Checking database connection...");
             if (err) {
                 if (err.code === 'PROTOCOL_CONNECTION_LOST') {
                     console.error('Database connection was closed.');
@@ -28,6 +29,7 @@ class DBConnection {
                 }
             }
             if (connection) {
+                console.log("Database connected")
                 connection.release();
             }
             return
