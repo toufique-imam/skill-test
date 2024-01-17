@@ -138,4 +138,4 @@ class WalletController {
     }
 }
 
-module.exports = new WalletController;
+module.exports = new WalletController();

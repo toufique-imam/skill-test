@@ -76,4 +76,4 @@ class ManageUserModel {
     }
 }
 
-module.exports = new ManageUserModel;
+module.exports = new ManageUserModel();

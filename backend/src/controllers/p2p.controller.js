@@ -56,4 +56,4 @@ class P2PController {
     }
 }
 
-module.exports = new P2PController
+module.exports = new P2PController()

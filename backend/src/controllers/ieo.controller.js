@@ -47,4 +47,4 @@ class IEOController {
     }
 }
 
-module.exports = new IEOController
+module.exports = new IEOController();

@@ -95,4 +95,4 @@ class TransactionModel {
     }
 }
 
-module.exports = new TransactionModel;
+module.exports = new TransactionModel();

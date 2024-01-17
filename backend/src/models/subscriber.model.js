@@ -53,4 +53,4 @@ class SubscriberModel {
     }
 }
 
-module.exports = new SubscriberModel;
+module.exports = new SubscriberModel();

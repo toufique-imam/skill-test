@@ -20,4 +20,4 @@ class SubscriberController {
     }
 }
 
-module.exports = new SubscriberController
+module.exports = new SubscriberController()

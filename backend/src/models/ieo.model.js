@@ -81,4 +81,4 @@ class IEOModel {
     }
 }
 
-module.exports = new IEOModel;
+module.exports = new IEOModel();

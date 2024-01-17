@@ -97,4 +97,4 @@ class WalletModel {
     }
 }
 
-module.exports = new WalletModel;
+module.exports = new WalletModel();
