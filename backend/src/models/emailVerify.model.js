@@ -18,6 +18,7 @@ class EmailVerifyModel {
             // return back the first row (user)
             return result[0];
         } catch(error) {
+            console.log("find one error",error)
             return {error:error.sqlMessage}
         }
     }
@@ -32,6 +33,7 @@ class EmailVerifyModel {
 
             return affectedRows;
         } catch (error) {
+            console.log("create error",error)
             return {error:error.sqlMessage}
         }
     }
@@ -67,4 +69,4 @@ class EmailVerifyModel {
     }
 }
 
-module.exports = new EmailVerifyModel;
+module.exports = new EmailVerifyModel();
